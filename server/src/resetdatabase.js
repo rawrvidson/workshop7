@@ -132,7 +132,12 @@ function resetDatabase(db, cb) {
   // "for" loop over asynchronous operations.
   var collections = Object.keys(initialData);
   var i = 0;
-
+  /**
+   * Adds any desired indexes to the database.
+   */
+  function addIndexes(db, cb) {
+    db.collection('feedItems').createIndex({ "contents.contents": "text" }, null, cb);
+  }
   // Processes the next collection in the collections array.
   // If we have finished processing all of the collections,
   // it triggers the callback.
@@ -143,7 +148,7 @@ function resetDatabase(db, cb) {
       // Use myself as a callback.
       resetCollection(db, collection, processNextCollection);
     } else {
-      cb();
+      addIndexes(db, cb);
     }
   }
 
