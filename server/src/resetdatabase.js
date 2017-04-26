@@ -9,24 +9,24 @@ var initialData = {
     "1": {
       "_id": new ObjectID("000000000000000000000001"),
       "fullName": "Someone",
-      "feed": 1
+      "feed": new ObjectID("000000000000000000000001")
     },
     "2": {
       "_id": new ObjectID("000000000000000000000002"),
       "fullName": "Someone Else",
-      "feed": 2
+      "feed": new ObjectID("000000000000000000000002")
     },
     "3": {
       "_id": new ObjectID("000000000000000000000003"),
       "fullName": "Another Person",
-      "feed": 3
+      "feed": new ObjectID("000000000000000000000003")
     },
     // This is "you"!
     "4": {
       "_id": new ObjectID("000000000000000000000004"),
       "fullName": "John Vilk",
       // ID of your feed.
-      "feed": 4
+      "feed": new ObjectID("000000000000000000000004")
     }
   },
   // The 'feedItems' collection. Contains all of the feed items on our Facebook
@@ -37,7 +37,7 @@ var initialData = {
       // A list of users that liked the post. Here, "Someone Else" and "Another Person"
       // liked this particular post.
       "likeCounter": [
-        2, 3
+        new ObjectID("000000000000000000000002"), new ObjectID("000000000000000000000003")
       ],
       // The type and contents of this feed item. This item happens to be a status
       // update.
@@ -90,7 +90,7 @@ var initialData = {
     "4": {
       "_id": new ObjectID("000000000000000000000004"),
       // Listing of FeedItems in the feed.
-      "contents": [2, 1]
+      "contents": [new ObjectID("000000000000000000000002"), new ObjectID("000000000000000000000001")]
     },
     "3": {
       "_id": new ObjectID("000000000000000000000003"),
